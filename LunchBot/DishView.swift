@@ -20,6 +20,10 @@ struct DishView: View {
             Text(dish.name)
                 .font(.title)
             
+            Text("How much is left?")
+                .font(.title2)
+                .padding()
+            
             Spacer()
             
             TraySliderView(foodItems: foodItems.set(dish: dish), percentageUnused: $percentageUnused, dismiss: $dismissTray)
