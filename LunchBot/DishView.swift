@@ -44,7 +44,7 @@ class FoodItems {
     func set(dish: Dish) -> [FoodItem] {
         guard foodItems == nil else { return foodItems! }
         foodItems = (0 ..< 50).map { _ in
-            FoodItem(emoji: dish.emoji, seed: Double.random(in: -1...1))
+            FoodItem(imageName: dish.imageName, seed: dish.seed ?? Double.random(in: -1...1), settings: dish.settings)
         }
         
         return foodItems!
@@ -53,11 +53,26 @@ class FoodItems {
 
 struct Dish: Hashable, Comparable {
     let name: String
-    let emoji: String
+    let imageName: String
+    let seed: Double?
+    let settings: DishPositioningSettings?
     
     static func < (lhs: Dish, rhs: Dish) -> Bool {
         lhs.name < rhs.name
     }
+    
+    static func == (lhs: Dish, rhs: Dish) -> Bool {
+        lhs.name == rhs.name
+    }
+}
+
+struct DishPositioningSettings: Hashable {
+    let padding: Double
+    let offsetX: Double
+    let offsetY: Double
+    let angle: Double
+    let rows: Int
+    let columns: Int
 }
 
 private extension Double {
@@ -81,7 +96,7 @@ private extension Double {
 
 struct DishView_Previews: PreviewProvider {
     static var previews: some View {
-        DishView(dish: .init(name: "Hot dog", emoji: "🌭"), pressed: { _ in })
+        DishView(dish: .init(name: "Hot dog", imageName: "case", seed: 0.0, settings: nil), pressed: { _ in })
             .padding(50)
     }
 }

@@ -10,12 +10,10 @@ import SwiftUI
 struct ContentView: View {
     
     let dishes: [Dish] = [
-        .init(name: "Apple", emoji: "🍎"),
-        .init(name: "Pizza", emoji: "🍕"),
-        .init(name: "Potato", emoji: "🥔"),
-        .init(name: "Hamburger", emoji: "🍔"),
-        .init(name: "Chicken", emoji: "🍗"),
-        .init(name: "Salad", emoji: "🥬")
+        .init(name: "Hot dish", imageName: "Chicken", seed: nil, settings: nil),
+        .init(name: "Side dish", imageName: "PastaButBigger", seed: nil, settings: .init(padding: 10, offsetX: 10, offsetY: 10, angle: 30, rows: 7, columns: 6)),
+        .init(name: "Salad", imageName: "Salad", seed: nil, settings: .init(padding: 10, offsetX: 10, offsetY: 10, angle: 30, rows: 7, columns: 6)),
+        .init(name: "Bread & Toppings", imageName: "Toppings", seed: 1, settings: .init(padding: 3, offsetX: -10, offsetY: -30, angle: 10, rows: 6, columns: 5)),
     ].sorted(by: <)
     
     @State private var tabSelection = 0
@@ -23,7 +21,7 @@ struct ContentView: View {
     
     var body: some View {
         TabView(selection: $tabSelection) {
-            ForEach(0 ... 5, id: \.self) { index in
+            ForEach(0 ..< dishes.count, id: \.self) { index in
                 DishView(dish: dishes[index]) { percentageUnused in
                     results[dishes[index]] = percentageUnused
                     withAnimation {
@@ -47,14 +45,14 @@ struct ContentView: View {
             } sharePressed: {
                 shareButton()
             }
-            .tag(6)
+            .tag(dishes.count)
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
     }
     
     func shareButton() {
         let shareable = results.map { dish, result in
-            "\(dish.emoji) \(dish.name) -> \(Int(result * 100.0))"
+            "\(dish.name) -> \(Int(result * 100.0))"
         }.joined(separator: "\n")
         
         

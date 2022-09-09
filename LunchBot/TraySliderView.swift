@@ -16,23 +16,34 @@ struct TraySliderView: View {
     
     var body: some View {
         ZStack(alignment: .top) {
-            Color.gray
-                .contentShape(Rectangle())
-                .frame(width: 180, height: 290)
-                .border(Color.black, width: 2)
-                .offset(y: 20)
+            Image(uiImage: UIImage(named: "TrayBack")!)
+                .resizable()
+                .frame(width: 290, height: 290)
+            
+            let settings = foodItems.first?.settings
+            let rows = settings?.rows ?? 7
+            let columns = settings?.columns ?? 6
+            
+            
             VStack(spacing: 0) {
-                ForEach(0 ..< 10, id: \.self) { row in
+                ForEach(0 ..< rows, id: \.self) { row in
                     HStack(spacing: 0) {
-                        ForEach(0 ..< 5, id: \.self) { column in
-                            FoodItemView(foodItem: foodItems[row * 5 + column])
+                        ForEach(0 ..< columns, id: \.self) { column in
+                            FoodItemView(foodItem: foodItems[row * columns + column])
                                 .frame(width: 50, height: 50)
-                                .padding(-10)
-                                .opacity(row > Int((draggedOffset.toPercentage(height: 300)) * 10) ? 1.0 : 0.0)
+                                .padding((settings?.padding ?? 10) * -1)
+                                .opacity(row > Int((draggedOffset.toPercentage(height: 210)) * Double(rows)) ? 1.0 : 0.0)
                         }
                     }
                 }
             }
+            .rotation3DEffect(.degrees(20), axis: (1, 0, 0))
+            
+            
+            Image(uiImage: UIImage(named: "TrayFront")!)
+                .resizable()
+                .frame(width: 290, height: 290)
+            
             
             SliderView()
                 .offset(y: draggedOffset)
@@ -40,14 +51,12 @@ struct TraySliderView: View {
                     DragGesture(minimumDistance: 0, coordinateSpace: .local)
                         .onChanged { drag in
                             let yDragged = drag.location.y
-                            draggedOffset = max(min(yDragged, 300), 0)
-                            percentageUnused = draggedOffset.toPercentage(height: 300)
+                            draggedOffset = max(min(yDragged, 185), 0)
+                            percentageUnused = draggedOffset.toPercentage(height: 210)
                         }
                 )
-            
+                .rotation3DEffect(.degrees(10), axis: (1, 0, 0))
         }
-        .rotation3DEffect(.degrees(20), axis: (1, 0, 0))
-        .rotation3DEffect(dismiss ? .degrees(90) : .zero, axis: (0, 1, 0))
     }
 }
 
@@ -59,7 +68,7 @@ extension Double {
 
 struct TraySlider_Previews: PreviewProvider {
     static var previews: some View {
-        let foodItems = (0 ..< 50).map { _ in FoodItem(emoji: "🍕",seed: Double.random(in: -1...1)) }
+        let foodItems = (0 ..< 50).map { _ in FoodItem(imageName: "case", seed: Double.random(in: -1...1), settings: nil) }
         TraySliderView(foodItems: foodItems, percentageUnused: .constant(0.5), dismiss: .constant(false))
             .padding()
     }
