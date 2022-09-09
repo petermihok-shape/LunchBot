@@ -29,11 +29,12 @@ struct DishView: View {
             Button {
                 pressed(percentageUnused)
             } label: {
-                Text(percentageUnused.emoji)
-                    .font(.system(size: 50))
-                    .frame(width: 200, height: 50)
+                Image(percentageUnused.soren)
+                    .resizable()
+                    .interpolation(.high)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 150, height: 150)
             }
-            .buttonStyle(.bordered)
             .padding(30)
         }
     }
@@ -76,20 +77,24 @@ struct DishPositioningSettings: Hashable {
 }
 
 private extension Double {
-    var emoji: String {
+    var soren: String {
         switch self {
         case 0.0 ..< 0.1:
-            return "🤬"
-        case 0.1 ..< 0.5:
-            return "😡"
+            return "Soren1"
+        case 0.1 ..< 0.25:
+            return "Soren2"
+        case 0.25 ..< 0.5:
+            return "Soren3"
         case 0.5 ..< 0.75:
-            return "🫤"
+            return "Soren4"
         case 0.75 ..< 0.99:
-            return "😀"
-        case 0.99 ... 1.0:
-            return "🥳"
+            return "Soren5"
+        case 0.99 ..< 1.00:
+            return "Soren6"
+        case 1.0:
+            return "Soren7"
         default:
-            return "🧐"
+            return "Soren1"
         }
     }
 }
