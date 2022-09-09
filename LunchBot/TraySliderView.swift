@@ -68,7 +68,7 @@ extension Double {
 
 struct TraySlider_Previews: PreviewProvider {
     static var previews: some View {
-        let foodItems = (0 ..< 50).map { _ in FoodItem(imageName: "case", seed: Double.random(in: -1...1), settings: nil) }
+        let foodItems = (0 ..< 50).map { _ in FoodItem(imageName: "Chicken", seed: Double.random(in: -1...1), settings: nil) }
         TraySliderView(foodItems: foodItems, percentageUnused: .constant(0.5), dismiss: .constant(false))
             .padding()
     }

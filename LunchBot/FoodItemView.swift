@@ -30,7 +30,7 @@ struct FoodItem: Identifiable {
 
 struct FoodItem_Previews: PreviewProvider {
     static var previews: some View {
-        FoodItemView(foodItem: .init(imageName: "case", seed: 0.5, settings: nil))
+        FoodItemView(foodItem: .init(imageName: "Chicken", seed: 0.5, settings: nil))
             .frame(width: 200, height: 200)
     }
 }

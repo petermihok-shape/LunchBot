@@ -105,7 +105,7 @@ private extension Double {
 
 struct DishView_Previews: PreviewProvider {
     static var previews: some View {
-        DishView(dish: .init(name: "Hot dog", imageName: "case", seed: 0.0, settings: nil), pressed: { _ in })
+        DishView(dish: .init(name: "Hot dog", imageName: "Chicken", seed: 0.0, settings: nil), pressed: { _ in })
             .padding(50)
     }
 }

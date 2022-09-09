@@ -82,6 +82,6 @@ struct SummaryView: View {
 
 struct SummaryView_Previews: PreviewProvider {
     static var previews: some View {
-        SummaryView(results: .constant([Dish(name: "Apple", imageName: "case", seed: 0.1, settings: nil) : 0.5]), savePressed: {}, restartPressed: {}, sharePressed: {})
+        SummaryView(results: .constant([Dish(name: "Apple", imageName: "Chicken", seed: 0.1, settings: nil) : 0.5]), savePressed: {}, restartPressed: {}, sharePressed: {})
     }
 }
