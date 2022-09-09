@@ -40,9 +40,15 @@ struct TraySliderView: View {
             .rotation3DEffect(.degrees(20), axis: (1, 0, 0))
             
             
-            Image(uiImage: UIImage(named: "TrayFront")!)
-                .resizable()
+            ZStack {
+                Image(uiImage: UIImage(named: "TrayFront")!)
+                    .resizable()
                 .frame(width: 290, height: 290)
+                
+                Text("\(Int(draggedOffset.toPercentage(height: 185.0)*100))%")
+                    .font(.title)
+                    .offset(x: 0.0, y: 190.0)
+            }
             
             
             SliderView()
