@@ -10,10 +10,10 @@ import SwiftUI
 struct ContentView: View {
     
     let dishes: [Dish] = [
-        .init(name: "Hot dish", imageName: "Chicken", seed: nil, settings: nil),
-        .init(name: "Side dish", imageName: "PastaButBigger", seed: nil, settings: .init(padding: 10, offsetX: 10, offsetY: 10, angle: 30, rows: 7, columns: 6)),
-        .init(name: "Salad", imageName: "Salad", seed: nil, settings: .init(padding: 10, offsetX: 10, offsetY: 10, angle: 30, rows: 7, columns: 6)),
-        .init(name: "Bread & Toppings", imageName: "Toppings", seed: 1, settings: .init(padding: 3, offsetX: -10, offsetY: -30, angle: 10, rows: 6, columns: 5)),
+        .init(name: "1. Hot dish", imageName: "Chicken", seed: nil, settings: nil),
+        .init(name: "2. Side dish", imageName: "PastaButBigger", seed: nil, settings: .init(padding: 10, offsetX: 10, offsetY: 10, angle: 30, rows: 7, columns: 6)),
+        .init(name: "3. Salad", imageName: "Salad", seed: nil, settings: .init(padding: 10, offsetX: 10, offsetY: 10, angle: 30, rows: 7, columns: 6)),
+        .init(name: "4. Bread & Toppings", imageName: "Toppings", seed: 1, settings: .init(padding: 3, offsetX: -10, offsetY: -30, angle: 10, rows: 6, columns: 5)),
     ].sorted(by: <)
     
     @State private var tabSelection = 0
@@ -52,7 +52,7 @@ struct ContentView: View {
     
     func shareButton() {
         let shareable = results.map { dish, result in
-            "\(dish.name) -> \(Int(result * 100.0))"
+            "\(dish.name) -> \(Int(result * 100.0))%"
         }.joined(separator: "\n")
         
         

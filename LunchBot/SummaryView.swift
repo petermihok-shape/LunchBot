@@ -37,7 +37,7 @@ struct SummaryView: View {
                     Text("\(Int(result * 100))%")
                 }
                 .padding(.vertical, 1)
-                .padding(.horizontal, 100)
+                .padding(.horizontal, 50)
             }
             
             Spacer()

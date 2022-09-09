@@ -23,7 +23,7 @@ struct TraySliderView: View {
             let settings = foodItems.first?.settings
             let rows = settings?.rows ?? 7
             let columns = settings?.columns ?? 6
-            
+            let padding = Double(settings?.padding ?? 10) * -1.0
             
             VStack(spacing: 0) {
                 ForEach(0 ..< rows, id: \.self) { row in
@@ -31,8 +31,8 @@ struct TraySliderView: View {
                         ForEach(0 ..< columns, id: \.self) { column in
                             FoodItemView(foodItem: foodItems[row * columns + column])
                                 .frame(width: 50, height: 50)
-                                .padding((settings?.padding ?? 10) * -1)
-                                .opacity(row > Int((draggedOffset.toPercentage(height: 210)) * Double(rows)) ? 1.0 : 0.0)
+                                .padding(padding)
+                                .opacity(row + 1 > Int((draggedOffset.toPercentage(height: 185)) * Double(rows)) ? 1.0 : 0.0)
                         }
                     }
                 }
@@ -52,7 +52,7 @@ struct TraySliderView: View {
                         .onChanged { drag in
                             let yDragged = drag.location.y
                             draggedOffset = max(min(yDragged, 185), 0)
-                            percentageUnused = draggedOffset.toPercentage(height: 210)
+                            percentageUnused = draggedOffset.toPercentage(height: 185)
                         }
                 )
                 .rotation3DEffect(.degrees(10), axis: (1, 0, 0))

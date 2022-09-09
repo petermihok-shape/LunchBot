@@ -85,11 +85,11 @@ private extension Double {
             return "Soren2"
         case 0.25 ..< 0.5:
             return "Soren3"
-        case 0.5 ..< 0.75:
+        case 0.5 ..< 0.65:
             return "Soren4"
-        case 0.75 ..< 0.99:
+        case 0.65 ..< 0.75:
             return "Soren5"
-        case 0.99 ..< 1.00:
+        case 0.75 ..< 1.00:
             return "Soren6"
         case 1.0:
             return "Soren7"
