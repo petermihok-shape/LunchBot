@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		60131EF128CB25E9008303A7 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60131EF028CB25E9008303A7 /* SliderView.swift */; };
+		60131EF328CB2BC7008303A7 /* AreaChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60131EF228CB2BC7008303A7 /* AreaChartView.swift */; };
 		BD8BA2FE28C9E4E4009B74AF /* LunchBotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8BA2FD28C9E4E4009B74AF /* LunchBotApp.swift */; };
 		BD8BA30028C9E4E4009B74AF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD8BA2FF28C9E4E4009B74AF /* ContentView.swift */; };
 		BD8BA30228C9E4E5009B74AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD8BA30128C9E4E5009B74AF /* Assets.xcassets */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		60131EF028CB25E9008303A7 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
+		60131EF228CB2BC7008303A7 /* AreaChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AreaChartView.swift; sourceTree = "<group>"; };
 		BD8BA2FA28C9E4E4009B74AF /* LunchBot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LunchBot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BD8BA2FD28C9E4E4009B74AF /* LunchBotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LunchBotApp.swift; sourceTree = "<group>"; };
 		BD8BA2FF28C9E4E4009B74AF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -65,8 +69,10 @@
 				BD8BA30128C9E4E5009B74AF /* Assets.xcassets */,
 				BD8BA30328C9E4E5009B74AF /* Preview Content */,
 				BD8BA30B28C9ECF6009B74AF /* TraySliderView.swift */,
+				60131EF028CB25E9008303A7 /* SliderView.swift */,
 				BD8BA30D28C9EE42009B74AF /* FoodItemView.swift */,
 				BD8BA30F28CA0FCF009B74AF /* DishView.swift */,
+				60131EF228CB2BC7008303A7 /* AreaChartView.swift */,
 			);
 			path = LunchBot;
 			sourceTree = "<group>";
@@ -153,8 +159,10 @@
 				BD8BA31028CA0FCF009B74AF /* DishView.swift in Sources */,
 				BD8BA30028C9E4E4009B74AF /* ContentView.swift in Sources */,
 				BD8BA30C28C9ECF6009B74AF /* TraySliderView.swift in Sources */,
+				60131EF328CB2BC7008303A7 /* AreaChartView.swift in Sources */,
 				BD8BA2FE28C9E4E4009B74AF /* LunchBotApp.swift in Sources */,
 				BD8BA31228CA1DDE009B74AF /* SummaryView.swift in Sources */,
+				60131EF128CB25E9008303A7 /* SliderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

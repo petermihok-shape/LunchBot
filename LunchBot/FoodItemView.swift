@@ -13,9 +13,9 @@ struct FoodItemView: View {
     
     var body: some View {
         Text(foodItem.emoji)
-            .font(.system(size: 500))
+            .font(.system(size: 53))
             .minimumScaleFactor(0.01)
-            .shadow(color: .black.opacity(0.2), radius: 10, x: foodItem.seed * 10, y: foodItem.seed * 10)
+//            .shadow(color: .black.opacity(0.2), radius: 10, x: foodItem.seed * 10, y: foodItem.seed * 10)
             .offset(x: foodItem.seed * 2.5, y: foodItem.seed * 2.5)
             .rotation3DEffect(.degrees(foodItem.seed * 30), axis: (1, 1, 1))
             

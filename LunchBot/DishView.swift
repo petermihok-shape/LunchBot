@@ -11,6 +11,7 @@ struct DishView: View {
     
     let dish: Dish
     @State private var percentageUnused = 0.0
+    @State private var dismissTray = false
     let pressed: (Double) -> Void
     let foodItems = FoodItems()
     
@@ -21,7 +22,7 @@ struct DishView: View {
             
             Spacer()
             
-            TraySliderView(foodItems: foodItems.set(dish: dish), percentageUnused: $percentageUnused)
+            TraySliderView(foodItems: foodItems.set(dish: dish), percentageUnused: $percentageUnused, dismiss: $dismissTray)
             
             Spacer()
             
